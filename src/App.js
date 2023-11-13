@@ -1,7 +1,8 @@
+import Navbar from "./components/Navbar"
 function App() {
   return (
     <div >
-      <p style={{color: "white"}}>Hello</p>
+      <Navbar />
     </div>
   );
 }
