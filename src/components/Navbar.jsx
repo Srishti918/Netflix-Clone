@@ -4,6 +4,15 @@ import { UserAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const { user, logOut } = UserAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex items-center justify-between p-4 z-[100] w-full absolute">
       <Link to="/">
@@ -17,6 +26,7 @@ const Navbar = () => {
             <button className='text-white pr-4'>Account</button>
           </Link>
           <button
+          onClick={handleLogout}
             className='bg-red-600 px-6 py-2 rounded cursor-pointer text-white'
           >
             Logout
