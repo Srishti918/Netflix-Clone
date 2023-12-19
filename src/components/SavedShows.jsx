@@ -17,6 +17,11 @@ const SavedShows = () => {
     slider.scrollLeft = slider.scrollLeft + 500;
   };
 
+  useEffect(() => {
+    onSnapshot(doc(db, 'users', `${user?.email}`), (doc) => {
+      setMovies(doc.data()?.savedShows);
+    });
+  }, [user?.email]);
 
   return (
     <>
